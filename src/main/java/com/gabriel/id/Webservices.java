@@ -12,12 +12,12 @@ import java.net.*;
  */
 public class Webservices {
 
-
+        private String url = "app";
         // HTTP GET request
         public String sendGet(String nom,String prenom)  {
             StringBuffer response = new StringBuffer();
             try {
-                String url = "http://10.211.55.8/phpservices/wsGetUserByName.php?nom="+nom+"&prenom="+prenom;
+                String url = "http://"+ this.url + "/phpservices/wsGetUserByName.php?nom="+nom+"&prenom="+prenom;
 
                 URL obj = new URL(url);
                 HttpURLConnection con = (HttpURLConnection) obj.openConnection();
@@ -53,7 +53,7 @@ public class Webservices {
             StringBuffer response = new StringBuffer();
             String line;
             try {
-                String adresseurl = "http://10.211.55.8/phpservices/wsInsertUser.php";
+                String adresseurl = "http://" + this.url + "/phpservices/wsInsertUser.php";
 
 
                 String data = URLEncoder.encode("nom", "UTF-8") + "=" + URLEncoder.encode(nom, "UTF-8");
@@ -85,7 +85,7 @@ public class Webservices {
         StringBuffer response = new StringBuffer();
         String line;
         try {
-            String adresseurl = "http://10.211.55.8/phpservices/wsUpdateUser.php";
+            String adresseurl = "http://" + this.url + "/phpservices/wsUpdateUser.php";
 
 
             String data = URLEncoder.encode("nom", "UTF-8") + "=" + URLEncoder.encode(nom, "UTF-8");
@@ -116,7 +116,7 @@ public class Webservices {
     public String getCountUser(String nom,String prenom)  {
         StringBuffer response = new StringBuffer();
         try {
-            String url = "http://10.211.55.8/phpservices/wsCountUser.php?nom="+nom+"&prenom="+prenom;
+            String url = "http://" + this.url + "/phpservices/wsCountUser.php?nom="+nom+"&prenom="+prenom;
 
             URL obj = new URL(url);
             HttpURLConnection con = (HttpURLConnection) obj.openConnection();
